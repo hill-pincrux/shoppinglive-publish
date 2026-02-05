@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style-nomal.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/cs-style.css" type="text/css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>네이버쇼핑-쇼핑라이브</title>
+</head>
+
+<body>
+    <div id="index" class="index">
+        <div class="wrap" id="cs-wrap">
+
+            <!-- 네비게이션 -->
+            <nav>
+                <ul class="nav-logo">
+                    <li class="logo">
+                        <img src="imgs/asset/IcNewNpayLogo.svg">
+                    </li>
+                    <!-- 뒤로가기/ 탭 닫기 -->
+                    <li class="close" id="close-window" onclick="closeBtn();">
+                        <img src="imgs/asset/IcClose.svg">
+                    </li>
+                </ul>
+            </nav>
+            <div class="contant-box">
+
+                <div class="box left">
+                    <div class="cs-top-banner">
+                        <div class="img">
+                            <img src="imgs/cs/head.png">
+                        </div>
+                        <div class="txt">
+                            <p class="tit">"네이버 쇼핑라이브 부스터" 광고란?</p>
+                            <p class="sub">‘네이버 쇼핑라이브’와 ‘네이버페이’가 공동 개발하여 별도의 연동 없이 사용자가 쇼핑라이브 방송을 5초 이상 시청하면 N페이 포인트를 적립해 주는 부스팅 광고로 시청 수를 증대시키고 전환까지 유도하는 광고 상품입니다.</p>
+                        </div>
+                        <div class="btn-area">
+                            <!--쇼핑라이브 부스터 제안서에 연결 및 다운로드-->
+                            <button class="download-btn" onclick="coverOpen();">
+                                쇼핑라이브 부스터 알아보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box right">
+                    <div class="cs-input-area">
+                        <div class="input-full required">
+                            <label for="company">
+                                <p>광고주명<span>필수입력</span></p>
+                            </label>
+                            <!--광고주명 수집 id="company"-->
+                            <input type="text" class="txt-input" id="company" placeholder="주식회사 네이버">
+                        </div>
+
+                        <div class="input-full">
+                            <label for="agency">
+                                <p>대행사명</p>
+                            </label>
+                            <!--대행사명 수집 id="agency"-->
+                            <input type="text" class="txt-input" id="agency" placeholder="쇼핑라이브 부스터 센터">
+                        </div>
+
+                        <div class="input-full required">
+                            <label for="name">
+                                <p>담당자 이름<span>필수입력</span></p>
+                            </label>
+                            <!--담당자 이름 수집 id="name"-->
+                            <input type="text" class="txt-input" id="name" placeholder="홍길동">
+                        </div>
+
+                        <div class="input-full required">
+                            <label for="name">
+                                <p>담당자 이메일<span>필수입력</span></p>
+                            </label>
+                            <!--담당자 이름 수집 id="name"-->
+                            <input type="text" class="txt-input" id="email" placeholder="example@naver.com">
+                        </div>
+
+                        <div class="input-full required">
+                            <label for="name">
+                                <p>담당자 휴대폰 번호<span>필수입력</span></p>
+                            </label>
+                            <!--담당자 이름 수집 id="name"-->
+                            <input type="text" class="txt-input" id="phone" placeholder="01012341234(숫자만)" oninput="checkPhoneNumber(this)">
+                        </div>
+
+                        <div class="input-full">
+                            <label for="channelId">
+                                <p>쇼핑라이브 채널 ID</p>
+                            </label>
+                            <!--쇼핑라이브 채널 수집 id="channelId"-->
+                            <input type="text" class="txt-input" id="channelId" placeholder="12345">
+                            <p class="sub-noti">
+                                예시) https://shoppinglive.naver.com/channels/<span>12345</span>  > <span>‘12345’가 채널 ID 입니다.</span>
+                            </p>
+                        </div>
+
+                        <div class="input-full">
+                            <label for="liveId">
+                                <p>쇼핑라이브 ID</p>
+                            </label>
+                            <!--쇼핑라이브 ID 수집 id="liveId"-->
+                            <input type="text" class="txt-input" id="liveId" placeholder="1234567">
+                            <p class="sub-noti">
+                                예시) https://shoppinglive.naver.com/lives/<span>1234567</span>  > <span>‘1234567’가 라이브 ID 입니다.</span>
+                            </p>
+                        </div>
+
+                        <div class="input-full">
+                            <div class="date_picker">
+                                <label for="date">
+                                    <p>쇼핑라이브 일정 / 시간</p>
+                                </label>
+                                <!--시작일 포커스 시 input type="Date"로 변경 id="startDate"-->
+                                <input type="date" class="dateinput" id="startDate" placeholder="시작일" type="date" required aria-required="true"/>
+                            </div>
+                            <div class="input-half">
+                                <div class="date_picker">
+                                    <label class="time-label" for="startTime">시작 시간</label>
+                                    <!--시작시간 포커스 시 input type="Time"로 변경 id="starTime"-->
+                                    <input type="time" class="timeinput" id="starTime" placeholder=" " required>
+                                </div>
+                                <div class="select_box">
+                                    <select id="ilveTime" class="timeinput" required>
+                                        <option value="" hidden selected disabled>방송 시간</option>
+                                        <option value="00:30" >30분</option>
+                                        <option value="01:00" >1시간</option>
+                                        <option value="01:30" >1시간 30분</option>
+                                        <option value="02:00" >2시간</option>
+                                        <option value="02:30" >2시간 30분</option>
+                                        <option value="03:00" >3시간</option>
+                                        <option value="03:30" >3시간 30분</option>
+                                        <option value="04:00-over">4시간 이상</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-full">
+                            <label for="name">
+                                <p>문의사항</p>
+                            </label>
+                            <!--문의사항 입력란 id="cs-note"-->
+                            <textarea class="txt-input" id="cs-note" placeholder="문의 내용을 입력해주세요."></textarea>
+                        </div>
+
+                        <div class="input-full">
+                            <div class="check-box">
+                                <!--개인정보 수집이용 동의에 대한 체크박스 id="check"-->
+                                <input type="checkbox" id="check">
+                                <label for="check">
+                                    개인정보 수집 및 이용에 동의합니다.
+                                </label>
+                            </div>
+                            <div class="txt-box">
+                                1. 수집하는 개인정보 항목: 광고주/ 회사명, 이름, 이메일주소, 휴대폰 번호<br>
+                                2. 수집 및 이용목적: 제휴 및 문의사항에 대한 답변<br>
+                                3. 보유 및 이용기간: 목적 달성시 까지<br><br>
+
+                                ※ 답변 외 용도로 사용하지 않습니다. <br>
+                                ※ 개인정보 수집 및 이용에 동의하지 않을 수 있으며, 동의하지 않는 경우 정보 제공이 제한 될 수 있습니다.
+                            </div>
+                        </div>
+
+                        <div class="input-full">
+                            <!--써밋버튼 완료시 값을 전송-->
+                            <!--초기값 비활성화 상태 .disabled-->
+                            <!--input / textrea / check 박스들의 요소가 하나라도 비어있다면 비활성화-->
+                            <!--input / textrea / check 박스들의 요소의 값이 전부 있다면 활성화됨-->
+                            <!--관련코드는 아래 스크립트를 참고-->
+                            <button class="sumit-btn disabled" data-target=".success" disabled>
+                                문의하기
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="cs-footer">
+                        <p>PINCRUX</p>
+                        <p>서울특별시 송파구 석촌호수로 272 MY 빌딩 5층</p>
+                        <p>기타 문의: nsl@pincrux.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 성공 팝업 -->
+        <div class="popup success" id="pop-success">
+            <div class="pop-dim"></div>
+            <div class="pop-nomal">
+                <div class="tit">
+                    <p class="head">
+                        문의 접수
+                    </p>
+                </div>
+                <div class="adtxt">
+                    <p class="sub">문의가 접수되었습니다.<br> 조금만 기다려 주시면 확인 후 답변드리겠습니다.</p>
+                </div>
+                <div class="button">
+                    <button class="close-btn">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 오류 팝업 -->
+        <div class="popup error">
+            <div class="pop-dim"></div>
+            <div class="pop-nomal">
+                <div class="tit">
+                    <p class="head">
+                        전송 오류
+                    </p>
+                </div>
+                <div class="adtxt">
+                    <p class="sub">문의 접수에 실패했습니다.<br> 잠시후 다시 시도해 주세요.</p>
+                </div>
+                <div class="button">
+                    <button class="close-btn">확인</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+    // 닫기 버튼
+    function closeBtn() {
+        window.close();
+    }
+    // 쇼핑라이브 상품소개서 (노션) 이동 버튼
+    function coverOpen() {
+        window.open('https://defiant-onyx-224.notion.site/265278e677588078b86cdd489dbc2025');
+    }
+
+    // 팝업 열기
+    $('.sumit-btn').on('click', function () {
+        const target = $(this).data('target');
+        $(target).fadeIn(200);
+    });
+    // 팝업 닫기
+    $('.popup .close-btn').on('click', function () {
+        $(this).closest('.popup').fadeOut(200);
+    });
+
+    //time 플레이스 홀더 관련 코드
+    function syncTimePicker($wrap) {
+        const $input = $wrap.find('.timeinput');
+        const hasValue = !!$input.val();
+
+        $wrap.toggleClass('is-filled', hasValue);
+        $input.toggleClass('is-filled', hasValue);
+
+        $input.toggleClass('is-empty', !hasValue);
+        }
+
+        $(function () {
+        $('.date_picker').each(function () {
+            const $wrap = $(this);
+            syncTimePicker($wrap);
+
+            $wrap.on('focusin', '.timeinput', function () {
+            $wrap.addClass('is-active');
+            });
+
+            $wrap.on('focusout', '.timeinput', function () {
+            $wrap.removeClass('is-active');
+            syncTimePicker($wrap);
+            });
+
+            $wrap.on('change input', '.timeinput', function () {
+            syncTimePicker($wrap);
+            });
+        });
+    });
+
+    //휴대폰번호 유효성 검사
+    //전화번호 입력 및 하이픈 자동 처리
+    function checkPhoneNumber(input) {
+        // 숫자만 추출 (최대 20자)
+        let value = input.value.replace(/[^0-9]/g, '');
+        if (value.length > 20) {
+            value = value.substring(0, 20);
+        }
+
+        let formattedValue = "";
+        
+        // 최소 9자 - 20자까지 하이픈 적용
+        if (value.length <= 3) {
+            formattedValue = value;
+        } else if (value.length <= 6) {
+            formattedValue = value.replace(/(\d{3})(\d+)/, '$1-$2');
+        } else if (value.length <= 10) {
+            formattedValue = value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
+        } else if (value.length <= 11) {
+            // 11자리 (휴대폰 표준)
+            formattedValue = value.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+        } else {
+            // 12자 이상(국제전화 등 고려)
+            formattedValue = value.replace(/(\d{3})(\d{4})(\d{4})(\d+)/, '$1-$2-$3-$4');
+        }
+
+        input.value = formattedValue;
+
+        // 혹은 특정 길이(예: 9자) 미만일 때 붉은색으로 표시하도록 설정 가능
+        if (value.length > 0 && value.length < 9) {
+            input.style.color = "red"; // 색상 제어 가능 (현재 붉은색)
+            $(input).data('valid', false);
+        } else if (value.length >= 9) {
+            input.style.color = ""; // 정상 (CSS 기본값)
+            $(input).data('valid', true);
+        } else {
+            $(input).data('valid', false);
+        }
+
+        validateForm();
+    }
+
+    //전체 폼 유효성 검사 (버튼 활성화)
+    function validateForm() {
+        const $submitBtn = $(".sumit-btn");
+        const $requiredInputs = $(".required input:not([type='checkbox'])");
+        const $checkbox = $("#check");
+        const $phoneInput = $("#phone");
+        
+        let allFilled = true;
+
+        //필수 텍스트 입력란 확인 (.required 클래스가 부여된 div 자녀 input에 적용됨)
+        $requiredInputs.each(function () {
+            if (!$(this).val().trim()) {
+                allFilled = false;
+                return false;
+            }
+        });
+
+        //전화번호 유효성 확인 (최소 9자 이상 입력 여부)
+        const isPhoneValid = $phoneInput.data('valid') === true;
+
+        //약관 동의 확인 (체크박스 동의 여부)
+        const isAgreed = $checkbox.is(":checked");
+
+        // 모든 조건 충족 시 버튼 활성화 및 .disabled 클래스 제거
+        if (allFilled && isPhoneValid && isAgreed) {
+            $submitBtn.removeClass("disabled").prop("disabled", false);
+        } else {
+            $submitBtn.addClass("disabled").prop("disabled", true);
+        }
+    }
+
+    //이벤트 초기화
+    $(function () {
+        const $requiredInputs = $(".required input:not([type='checkbox'])");
+        const $checkbox = $("#check");
+        const $textarea = $("#cs-note");
+
+        $requiredInputs.on("input change", validateForm);
+        if($textarea.length) $textarea.on("input", validateForm);
+        $checkbox.on("change", validateForm);
+
+        validateForm();
+    });
+
+    //문의하기 버튼 클릭 시 데이터 수집 로직 //
+    //$('.sumit-btn').on('click', function () {
+        // 휴대폰 번호에서 하이픈 제거한 숫자만 추출 //
+       //const rawPhoneNumber = $('#phone').val().replace(/[^0-9]/g, '');
+        
+        // 수집할 데이터 객체 예시 //
+        //const formData = {
+            //company: $('#company').val(),
+            //agency: $('#agency').val(),
+            //name: $('#name').val(),
+            //email: $('#email').val(),
+            //phone: rawPhoneNumber, // 하이픈 제외된 숫자만 담김
+            //channelId: $('#channelId').val(),
+            //liveId: $('#liveId').val(),
+            //startDate: $('#startDate').val(),
+            //startTime: $('#starTime').val(),
+            //liveTime: $('#ilveTime').val(),
+            //note: $('#cs-note').val()
+        //};
+
+        //console.log("전송될 데이터:", formData);   
+
+        // 전송이 성공하면 .success팝업 띄워주십셔 실패하면 .Error 띄워주시구요 //
+    //});
+</script>
+
+</body>
+</html>

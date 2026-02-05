@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style-nomal.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/contract-style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="js/contacts-store.js"></script>
+    <script src="js/contacts-select.js"></script>
+    <title>네이버쇼핑라이브 핀크럭스 게재신청서</title>
+</head>
+
+<body>
+    <div id="index" class="index">
+        <div class="wrap">
+            <div class="logo">
+                <img src="imgs/contract/logo_r.png">
+            </div>
+            <div class="contract">
+                <p class="title">네이버 쇼핑라이브 부스터 광고 게재 신청서</p>
+                <div class="input-div">
+                    <p class="tit">(갑) 광고주</p>
+                    <div class="grid">
+                        <ul class="col">
+                            <li class="item">
+                                <div class="tit">
+                                    상호
+                                </div>
+                                <div class="input">
+                                    <!-- 광고주 상호명 -->
+                                    <input type="text" placeholder="(주)핀크럭스"  data-bind="adv-name">
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="tit">
+                                    사업자 등록번호
+                                </div>
+                                <div class="input">
+                                    <!-- 광고주 사업자 등록 번호 -->
+                                    <input type="text"  placeholder="000-00-0000"   data-bind="adv-bizno">
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col">
+                            <li class="item">
+                                <div class="tit">
+                                    대표자
+                                </div>
+                                <div class="input">
+                                    <!-- 광고주 대표자 -->
+                                    <input type="text" placeholder="홍길동"  data-bind="adv-ceo">
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="tit">
+                                    업태 / 업종
+                                </div>
+                                <div class="input">
+                                    <!-- 광고주 업종 / 업태 -->
+                                    <input type="text"  placeholder="광고 / 통신">
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    주소
+                                </div>
+                                <div class="input">
+                                    <!-- 광고주 주소 -->
+                                    <input type="text" placeholder="서울시 강남구 삼성동">
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    담당자
+                                </div>
+                                <div class="row">
+                                    <div class="inner">
+                                        <div class="tit">
+                                            성명
+                                        </div>
+                                        <div class="input">
+                                            <!-- 광고주 담당자 성명 -->
+                                            <input type="text"  placeholder="홍길동">
+                                        </div>
+                                    </div>
+                                    <div class="inner">
+                                        <div class="tit">
+                                            FAX
+                                        </div>
+                                        <div class="input">
+                                            <!-- 광고주 담당자 팩스 -->
+                                            <input type="text" placeholder="000-0000-0000">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="inner">
+                                        <div class="tit">
+                                           전화
+                                        </div>
+                                        <div class="input">
+                                            <!-- 광고주 담당자 전화 -->
+                                            <input type="text"  placeholder="010-0000-0000">
+                                        </div>
+                                    </div>
+                                    <div class="inner">
+                                        <div class="tit">
+                                            E-mail
+                                        </div>
+                                        <div class="input">
+                                            <!-- 광고주 담당자 메일 -->
+                                            <input type="text"  placeholder="ex@exsample.com">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!-- 매체사 담당자 선택 -->
+                
+
+                <div class="input-div">
+                    <p class="tit">(을) 매체(대행)사</p>
+                    <div class="row no-print select">
+                        <div class="inner" style="width:100%;">
+                            <div class="tit">담당자 선택</div>
+                            <div class="input">
+                                <select id="mediaContactSelect" class="select-box"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <ul class="col">
+                            <li class="item">
+                                <div class="tit">
+                                    상호
+                                </div>
+                                <div class="input">
+                                    <!-- 매체 상호 -->
+                                    <input type="text" value="(주) 핀크럭스" disabled>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="tit">
+                                    사업자 등록번호
+                                </div>
+                                <div class="input">
+                                    <!-- 매체 사업자 등록번호 -->
+                                    <input type="text" value="605-81-97880" disabled>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col">
+                            <li class="item">
+                                <div class="tit">
+                                    대표자
+                                </div>
+                                <div class="input">
+                                    <!-- 매체 대표자 -->
+                                    <input type="text" value="남진모" disabled>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="tit">
+                                    업태 / 업종
+                                </div>
+                                <div class="input">
+                                    <input type="text" value="서비스 / 마케팅 및 광고대행 외" disabled>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    주소
+                                </div>
+                                <div class="input">
+                                    <!-- 매체 주소 -->
+                                    <input type="text" value="부산시 해운대구 센텀서로 30, 2403호 (우동)" disabled>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    담당자
+                                </div>
+                                <div class="row">
+                                    <div class="inner">
+                                        <div class="tit">
+                                            성명
+                                        </div>
+                                        <div class="input">
+                                            <!-- 매체 담당자 성명 -->
+                                            <input type="text" id="mediaContactName" placeholder="홍길동">
+                                        </div>
+                                    </div>
+                                    <div class="inner">
+                                        <div class="tit">
+                                            FAX
+                                        </div>
+                                        <div class="input">
+                                            <!-- 매체 담당자 팩스 -->
+                                            <input type="text" id="mediaContactFax" placeholder="000-0000-0000">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="inner">
+                                        <div class="tit">
+                                           전화
+                                        </div>
+                                        <div class="input">
+                                            <!-- 매체 담당자 전화 -->
+                                            <input type="text" id="mediaContactPhone"  placeholder="010-0000-0000">
+                                        </div>
+                                    </div>
+                                    <div class="inner">
+                                        <div class="tit">
+                                            E-mail
+                                        </div>
+                                        <div class="input">
+                                            <!-- 매체 담당자 이메일 -->
+                                            <input type="text" id="mediaContactEmail"  placeholder="ex@exsample.com">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="input-div">
+                    <p class="tit">계약사항</p>
+                    <div class="grid">
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    광고내용
+                                </div>
+                                <div class="txt">
+                                    N페이 '네이버 쇼핑라이브 부스터'
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    매체명
+                                </div>
+                                <div class="txt">
+                                    N페이(앱&웹) > 포인트 탭 > 쇼핑라이브 미션 배너
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    광고(집행)기간
+                                </div>
+                                <div class="input">
+                                    <!-- 광고(집행)기간 -->
+                                    <input type="text"  placeholder="2026년 00월 00일 00:00 ~ 00:00">
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    광고참여방식
+                                </div>
+                                <div class="txt">
+                                    쇼핑라이브 미션 배너 통해 방송 진행 중인 쇼핑라이브 방문 후 5초 시청 시 네이버페이 포인트 적립 
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    광고 예산<br>(광고 단가)
+                                </div>
+                                <div class="input">
+                                    <!-- 광고단가 -->
+                                    <textarea class="txt-area" id="autoResizeTextarea"   rows="1" oninput="autoResize(this)" placeholder="1시간 라이브 기준 000만원(VAT 별도) - 이후 30분 단위(단가: 50만원/VAT 별도) 증액"></textarea>   
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <!-- class="case1" id="cace1-1" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주)_선입 -->
+                            <!-- 어드민에서 각 케이스를 골라서 진행하길 원하고있음. 나머지 3개의 케이스들은 display:none 처리해놓은 상태 -->
+                            <li class="item case1" id="cace1-1">
+                                <div class="tit">
+                                    정산특이사항
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 쇼핑라이브 ID :</p>
+                                        <input type="text"  placeholder="1234">
+                                    </div>
+                                    ■ 집행금액의 100% 선지급 조건으로 진행<br>
+                                    - 예고 노출 이후 캠페인 취소 시 환불/정산 불가<br>
+                                    - 예고 노출 전 캠페인 취소 시 전액 환불 처리함(환불 시 처리방법, 시기등은 별도로 상호확인하여 진행한다.)
+                                </div>
+                            </li>
+
+                            <!-- class="case2" id="cace1-2" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주대행사명-광고주명)_선입 -->
+                            <li class="item case2" id="cace1-2" style="display: none;">
+                                <div class="tit">
+                                    정산특이사항
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 광고주명 :</p>
+                                        <input type="text"  placeholder="(주)핀크럭스">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 쇼핑라이브 ID :</p>
+                                        <input type="text"  placeholder="1234">
+                                    </div>
+                                    ■ 집행금액의 100% 선지급 조건으로 진행<br>
+                                    - 예고 노출 이후 캠페인 취소 시 환불/정산 불가<br>
+                                    - 예고 노출 전 캠페인 취소 시 전액 환불 처리함(환불 시 처리방법, 시기등은 별도로 상호확인하여 진행한다.)
+                                </div>
+                            </li>
+
+                            <!-- class="case3" id="cace1-3" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주대행사명-광고주명)_후불 -->
+                            <li class="item case3" id="cace1-3" style="display: none;">
+                                <div class="tit">
+                                    정산특이사항
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 광고주명 :</p>
+                                        <input type="text"  placeholder="(주)핀크럭스">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 쇼핑라이브 ID :</p>
+                                        <input type="text"  placeholder="1234">
+                                    </div>
+                                    ■ 집행금액의 100% 후불 조건으로 진행
+                                </div>
+                            </li>
+
+                            <!-- class="case4" id="cace1-4" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주명)_후불 -->
+                            <li class="item case4" id="cace1-4" style="display: none;">
+                                <div class="tit">
+                                    정산특이사항
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 쇼핑라이브 ID :</p>
+                                        <input type="text"  placeholder="1234">
+                                    </div>
+                                    ■ 집행금액의 100% 후불 조건으로 진행
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <ul class="col full">
+                            <!-- class="case1" id="cace2-1" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주)_선입 -->
+                            <!-- 어드민에서 각 케이스를 골라서 진행하길 원하고있음. 나머지 3개의 케이스들은 display:none 처리해놓은 상태 -->
+                            <li class="item case1" id="cace2-1">
+                                <div class="tit">
+                                    대금지급방식
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 세금계산서 작성일 :</p>
+                                        <!-- 세금계산서 작성일 -->
+                                        <input type="text"  placeholder="2026년 00월 00일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급일자 :</p>
+                                        <!-- 대금지급일자 -->
+                                        <input type="text"  placeholder="2026년 00월 00일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급조건 :</p>
+                                        <input type="text" value="'갑'이 '을'의 통장으로 현금 지급" disabled>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--class="case2" id="cace2-2" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주대행사명-광고주명)_선입 -->
+                            <li class="item case2" id="cace2-2" style="display: none;">
+                                <div class="tit">
+                                    대금지급방식
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 세금계산서 작성일 :</p>
+                                        <!-- 세금계산서 작성일 -->
+                                        <input type="text"  placeholder="2026년 00월 00일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급일자 :</p>
+                                        <!-- 대금지급일자 -->
+                                        <input type="text"  placeholder="2026년 00월 00일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급조건 :</p>
+                                        <input type="text" value="'갑'이 '을'의 통장으로 현금 지급(대행수수료 상계처리한 대금 지급)" disabled>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--class="case3" id="cace2-3" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주대행사명-광고주명)_후불 -->
+                            <li class="item case3" id="cace2-3" style="display: none;">
+                                <div class="tit">
+                                    대금지급방식
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 세금계산서 작성일 :</p>
+                                        <!-- 세금계산서 작성일 -->
+                                        <input type="text"  placeholder="광고진행 당월 말일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급일자 :</p>
+                                        <!-- 대금지급일자 -->
+                                        <input type="text"  placeholder="세금계산서 작성일자 익월 말일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급조건 :</p>
+                                        <input type="text" value="'갑'이 '을'의 통장으로 현금 지급(대행수수료 상계처리한 대금 지급)" disabled>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--class="case4" id="cace2-4" 네이버쇼핑라이브 핀크럭스 게재신청서(광고주명)_후불 -->
+                            <li class="item case4" id="cace2-4" style="display: none;">
+                                <div class="tit">
+                                    대금지급방식
+                                </div>
+                                <div class="txt">
+                                    <div class="input">
+                                        <p>■ 세금계산서 작성일 :</p>
+                                        <!-- 세금계산서 작성일 -->
+                                        <input type="text"  placeholder="광고진행 당월 말일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급일자 :</p>
+                                        <!-- 대금지급일자 -->
+                                        <input type="text"  placeholder="세금계산서 작성일자 익월 말일">
+                                    </div>
+                                    <div class="input">
+                                        <p>■ 대금지급조건 :</p>
+                                        <input type="text" value="'갑'이 '을'의 통장으로 현금 지급" disabled>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    권리와 의무
+                                </div>
+                                <div class="txt">
+                                    <span>■ 비밀유지의무</span><br>
+                                    1) '갑'과 '을'은 본 광고집행과 관련하여 취득한 상대방의 정보 및 고객개인정보 등에 관하여 광고집행 종료후를 포함한 비밀유지의무를 가지며, 이의 위반시 관련법령에 의해 민,형사상의 책임을 진다.<br><br>
+                                    <span>■ 광고물의 지적소유권</span><br>
+                                    1) '갑'과 '을'은 각각 제작한 광고물에 대한 지적소유권을 갖는다. 단, '을'은 본 광고물에 대해 본 프로젝트 이외의 업무에 '갑'의 허가 없이 이를 사용할 수 없다.<br>
+                                    2) '갑'은 광고물의 변경이 필요할 경우에는 '을'에게 통지하여 상호 협의하여 변경할 수 있다.  
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="col full">
+                            <li class="item">
+                                <div class="tit">
+                                    계약효력
+                                </div>
+                                <div class="txt">
+                                    ■ '갑'과 '을'은 본 신청서의 내용을 신의성실에 따라 이행할 것을 확약하고, 계약을 증명하기 위하여  2부 작성하여 기명날인 후 각 1부씩 보관한다.<br>
+                                    ■ '갑'과 '을'의 담당자 명의 이메일로 인감날인 스캔본의 교환시 지면 날인본과 동일한 효력을 발휘한다.
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="footer-date">
+                    <p>위와 같이 광고 게재를 신청합니다.</p>
+                    <div class="input">
+                        <p>작성일자 :</p>
+                        <!-- 작성일자 -->
+                        <div class="date-wrap">
+                            <input type="date" id="dateInput" class="date">
+                            <span id="dateText" class="date-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-signed">
+                    <div class="signed-grid">
+                        <div class="table-txt">
+                            <p class="tit">광고주</p>
+                            <div class="full">
+                                <!-- 광고주 상호명 -->
+                                <input type="text"  placeholder="광고주 상호명"   data-bind-target="adv-name">
+                                <!-- 광고주 사업자 등록번호 -->
+                                <input type="text"  placeholder="사업자 등록번호"   data-bind-target="adv-bizno">
+                            </div>
+                            <div class="full">
+                                <!-- 광고주 대표자 명 -->
+                                <input type="text"  placeholder="대표자"   data-bind-target="adv-ceo">
+                                <div class="signed">
+                                    <label class="label" for="imageUpload">(인)</label>
+                                    <!-- 광고주 인감 업로드 버튼 -->
+                                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                                    <div class="sign-img">
+                                        <img id="preview" class="preview" src="#" alt="이미지 미리보기" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="signed-grid">
+                        <div class="table-txt">
+                            <p class="tit">매체사</p>
+                            <div class="full">
+                                <!-- 매체사 상호명 -->
+                                <input type="text"  value="(주) 핀크럭스" disabled>
+                                <!-- 매체사 사업자 등록번호 -->
+                                <input type="text"  value="605-81-97880" disabled>
+                            </div>
+                            <div class="full">
+                                <!-- 매체사 대표자 명 -->
+                                <input type="text"  value="남진모" disabled>
+                                <div class="signed">
+                                    <label class="label">(인)</label>
+                                    <div class="sign-img pincrux">
+                                    <!-- 매체사 인감 // 다운로드 안되게 보호조치 바람 -->
+                                    <img class="preview" src="imgs/contract/pincrux-sign.png" oncontextmenu="return false;"  ondragstart="return false;" onselectstart="return false;" style="-webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;">
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contract-actions no-print">
+                <p class="sub">
+                    <span>위의 (인)을 눌러서 인감을 업로드해주세요.</span><br>
+                    1:1 비율의 최소 가로 100px / 세로 100px 이상 사이즈가 권장됩니다.
+                </p>
+                <button type="button" id="btnPrintPdf">신청서 인쇄 및 PDF로 저장</button>
+            </div>
+        </div>
+
+        <!-- 오류 팝업 -->
+        <div class="popup error">
+            <div class="pop-dim"></div>
+            <div class="pop-nomal">
+                <div class="tit">
+                    <p class="head">
+                        오류
+                    </p>
+                </div>
+                <div class="adtxt">
+                    <p class="sub">인감을 업로드한 후 PDF로 저장할 수 있어요.</p>
+                </div>
+                <div class="button">
+                    <button class="close-btn">확인</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // 데이터 동기화
+        (function(){
+            const sources = document.querySelectorAll('[data-bind]');
+            
+            sources.forEach(src => {
+                const key = src.getAttribute('data-bind');
+                const target = document.querySelector(`[data-bind-target="${key}"]`);
+                if (!target) return;
+
+                // 입력할 때마다 동기화
+                src.addEventListener('input', () => {
+                target.value = src.value;
+                });
+
+                // 페이지 새로고침 시 초기값도 반영
+                if (src.value) {
+                target.value = src.value;
+                }
+            });
+        })();
+
+        function autoResize(textarea) {
+            textarea.style.height = 'auto' // 높이를 자동으로 초기화
+            textarea.style.height = textarea.scrollHeight + 'px' // 스크롤 높이에 맞게 높이 설정
+        }
+
+        const imageUpload = document.getElementById('imageUpload');
+        const preview = document.getElementById('preview');
+
+        imageUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0]; // 선택된 파일 가져오기
+
+            if (file) {
+                const reader = new FileReader(); // FileReader 객체 생성
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result; // 읽어온 파일 데이터를 img src에 설정
+                    preview.style.display = 'block'; // 미리보기 이미지 보이게 설정
+                }
+
+                reader.readAsDataURL(file); // 파일을 Data URL로 읽기 (base64 형식)
+            } else {
+                preview.style.display = 'none'; // 파일 선택 취소 시 숨기기
+            }
+        });
+
+        (function(){
+            const btn = document.getElementById('btnPrintPdf');
+            const fileInput = document.getElementById('imageUpload'); // 광고주 인감 업로드
+            const previewImg = document.getElementById('preview');
+            const popup = document.querySelector('.popup.error');
+
+            if (!btn || !popup) return;
+
+            let originalTitle = '';
+            let pendingSealUpload = false; // ✅ 팝업 확인 후 업로드창을 띄울지 여부
+
+            function isSealUploaded(){
+                const hasFile = !!(fileInput && fileInput.files && fileInput.files.length > 0);
+                const hasPreview = !!(previewImg && previewImg.style.display !== 'none'
+                && previewImg.getAttribute('src') && previewImg.getAttribute('src') !== '#');
+                return hasFile || hasPreview;
+            }
+
+            function openError(title, message){
+                popup.querySelector('.head').textContent = title || '오류';
+                popup.querySelector('.sub').textContent = message || '오류가 발생했습니다.';
+                popup.classList.add('open');
+            }
+
+            function closeError(){
+                popup.classList.remove('open');
+            }
+
+            // ✅ PDF 저장 버튼 클릭
+            btn.addEventListener('click', () => {
+                // 인감 없으면 팝업만 띄우고 종료
+                if (!isSealUploaded()) {
+                pendingSealUpload = true; // ✅ 확인 누르면 업로드창 띄우게
+                openError('인감 업로드 필요', '광고주 인감을 업로드한 후 PDF로 저장할 수 있어요.');
+                return;
+                }
+
+                // 인감 있으면 정상 print
+                pendingSealUpload = false;
+                closeError();
+
+                originalTitle = document.title;
+                document.title = '쇼핑라이브_부스터_광고게재_신청서';
+
+                window.print();
+            });
+
+            // ✅ 팝업 확인 버튼 / 딤 클릭 처리
+            document.addEventListener('click', (e) => {
+                const isConfirm = e.target.closest('.popup.error .close-btn');
+                const isDim = e.target.closest('.popup.error .pop-dim');
+
+                if (!isConfirm && !isDim) return;
+
+                closeError();
+
+                // ✅ “확인” 눌렀을 때만 업로드창 열기
+                if (isConfirm && pendingSealUpload) {
+                pendingSealUpload = false;
+
+                // iOS/WebView에서 click이 막히는 경우가 있어 살짝 지연
+                setTimeout(() => {
+                    fileInput?.click();
+                }, 10);
+                } else {
+                pendingSealUpload = false;
+                }
+            });
+
+            // print 끝나면 제목 원복
+            window.addEventListener('afterprint', () => {
+                if (originalTitle) document.title = originalTitle;
+            });
+        })();
+
+        //date 연/월/일 출력
+        (function(){
+            const wrap = document.querySelector('.date-wrap');
+            const input = document.getElementById('dateInput');
+            const text  = document.getElementById('dateText');
+
+            if (!wrap || !input || !text) return;
+
+            function formatKR(ymd){
+                if (!ymd) return '';
+                const [y, m, d] = ymd.split('-');
+                return `${y}년 ${m}월 ${d}일`;
+            }
+
+            // 날짜 선택 → 확정 상태
+            function applyDate(){
+                if (!input.value) return;
+                text.textContent = formatKR(input.value);
+                wrap.classList.add('is-fixed');
+            }
+
+            // 이벤트
+            input.addEventListener('change', applyDate);
+
+            // 텍스트 클릭 → 다시 수정 가능
+            text.addEventListener('click', () => {
+                wrap.classList.remove('is-fixed');
+                input.focus();
+                input.showPicker?.(); // 크롬/안드로이드 대응 (지원 안 되면 무시됨)
+            });
+
+            // 초기값이 있는 경우(새로고침 등)
+            if (input.value) {
+                applyDate();
+            }
+        })();
+
+    </script>
+
+</body>
+</html>

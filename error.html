@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style-nomal.css" type="text/css">
+    <link rel="stylesheet" href="css/error-style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>네이버쇼핑-쇼핑라이브</title>
+</head>
+
+<body>
+    <div id="index" class="index">
+        <div class="wrap">
+            <!-- 네비게이션 -->
+            <nav>
+                <ul class="nav-title">
+                    <!-- 뒤로가기/ 탭 닫기 -->
+                    <li id="close-window" onclick="closeBtn();">
+                        <img src="imgs/asset/left-arrow.svg">
+                    </li>
+                    <li class="title">
+                    </li>
+                    <li></li>
+                </ul>
+            </nav>
+
+            <div class="error-box">
+
+                <div class="txt-box">
+                    <p class="txt">
+                        일시적인 오류가 발생했습니다.<br>
+                        잠시 후 다시 시도해주세요.
+                    </p>
+                    <div class="btn-box">
+                        <!--cta 버튼-->
+                        <button>
+                            네이버페이 포인트탭 돌아가기
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-sign">
+                    <div class="sign">
+                        <p>PINCRUX</p>
+                        <p>Copyright PINCRUX. All rights reserved.</p>
+                    </div>
+                    <div class="btn">
+                        <!--cs 호출 버튼-->
+                        <p onclick="window.open('#');">이용문의</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 오류 팝업 -->
+        <div class="popup error">
+            <div class="pop-dim"></div>
+            <div class="pop-nomal">
+                <div class="tit">
+                    <p class="head">
+                        오류 제목
+                    </p>
+                </div>
+                <div class="adtxt">
+                    <p class="sub">오류 문구 입력</p>
+                </div>
+                <div class="button">
+                    <button class="close-btn">확인</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+   
+    </script>
+
+</body>
+</html>
