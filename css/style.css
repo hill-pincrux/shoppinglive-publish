@@ -233,7 +233,6 @@ nav {
   background-color: #FFEAEB;
   min-height: 56px;
   position: fixed;
-  position: relative;
   top: 0;
   z-index: 50;
 }
