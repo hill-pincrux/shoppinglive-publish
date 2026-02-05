@@ -170,14 +170,14 @@ body.no-scroll {
 #tost-alram {
     position: fixed;
     z-index: 60;
-    right: .35rem;
+    right: .75rem;
     top: calc(env(safe-area-inset-top) + 44px);
     pointer-events: none;
     transform: translateY(-6px) scale(.96);
     transition: opacity .18s ease, transform .18s ease;
     opacity: 0;
     img {
-        width: 5.25rem;
+        width: 4.5rem;
     }
 
     &.show {

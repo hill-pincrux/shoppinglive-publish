@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style-nomal.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.13.0/lottie.min.js"></script>
     <title>네이버쇼핑-쇼핑라이브</title>
 </head>
 
@@ -31,11 +30,10 @@
                 </ul>
             </div>
 
-             <!--알림 신청이 안되어있을때 토스트 나타남 5초 뒤에 사라짐-->
+            <!--알림 신청이 안되어있을때 토스트 나타남 5초 뒤에 사라짐-->
             <div id="tost-alram" class="tost-alram">
                 <img src="imgs/asset/noti-tost.svg">
             </div>
-
             <!-- 네비게이션 -->
             <nav>
                 <ul class="nav-btn index">
@@ -56,14 +54,14 @@
             </nav>
 
             <div class="contant top">
-                <!-- top-banner class Name 추가 (색상변경을 위함) -->
                 <div class="itembox index top-banner">
                     <!-- 상단 배너 -->
                     <!-- live-list에 아이템이 없을경우 style에 Paddin-bottom 1rem 추가됨 -->
                     <ul class="head-banner">
                         <li class="txt">
                             <p class="sub">쇼핑라이브 보고</p>
-                            <p class="tit">포인트 받기</p>
+                            <p class="tit">포인트 받기 
+                            </p>
                         </li>
                         <li class="img">
                             <img src="imgs/mission_icon.svg">
@@ -87,135 +85,16 @@
                     </div>
 
                     <!-- 라이브 쇼핑 리스트(라이브 되고 있는 쇼핑 리스트 4개 까지 보여짐) -->
+                    <!-- live-list에 아이템이 없을경우 style에 display : none 추가됨 -->
                     <ul class="live-list">
-
-                        <!-- 라이브 쇼핑 리스트  -->
-                        <li class="list-item">
-
-                            <!-- Lotti 애니메이션 호출 // 토스트의 동전 튀는 그것  -->
-                            <!-- gif로 변경됨 / cdn에서 끌어오는 방향을 바꿔야함 -->
-                            <!-- live-list-thumb 는 오버플로우 히든 효과가 있기 떄문에 박스 바깥에 위치하여됨/ 애니메이션이 박스 밖으로 초과되어야함 -->
-                            <!-- 지급 유무에 따라서 존재하고 없어짐 / 리워드 받기 전 상태에만 존재하고 리워드 받은 후에는 없어져야함 -->
-                            <div class="npay-ani">
-                                <img src="imgs/asset/NCoin_popupFlip.gif">
-                            </div>
-
-                            <!-- 라이브 쇼핑 리스트 썸네일 이미지 출력  -->
-                            <!-- 아래 백그라운드로 이미지 제어 url(#) 출력할 이미지 주소 호출  -->
-                            <ul class="live-list-thumb" style="background-image: url(imgs/live-tumb/item1.png);">
-                                 <!-- 라이브 리스트의 리워드 지급 유무 뱃지 노출  -->
-                                <li class="live-list-badge">
-                                    <!-- 리워드 받기 전 상태 imgs/badge/badge_before.svg -->
-                                    <!-- 리워드 받은 후 상태 imgs/badge/badge_after.svg -->
-                                    <img src="imgs/badge/badge_before.svg">
-                                    <!-- 리워드 지급 금액 노출 -->
-                                    <p>5원</p>
-                                </li>
-                                <!-- 프로그레스 바 영역 케이스는 총 3단계 -->
-                                <li class="live-list-bar">
-                                    <!-- 방송타임에 따라 형태를 3가지로 분류함 (유동적으로 변하지 않음/ 페이지 로딩 시점 기준) -->
-                                    <!-- case1 = 방송 시작 ~ 14분 59 초
-                                        <p>방금 시작했어요!</p>
-                                        <div class="bar case1"></div>
-                                    -->
-                                    <!-- case2 = 15분 ~ 44분 59 초
-                                        <p>라이브 중이에요!</p>
-                                        <div class="bar case2"></div>
-                                    -->
-                                    <!-- case3 = 45분 ~ 방송 종료까지
-                                        <p>곧 끝나요!</p>
-                                        <div class="bar case3"></div>
-                                    -->
-                                    <p>방금 시작했어요!</p>
-                                    <div class="bar case1"></div>
-                                </li>
-                            </ul>
-                            <!-- 라이브 방송 타이틀 -->
-                            <p class="live-list-title">
-                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
-                            </p>
-                        </li>
-                        <!-- 라이브 쇼핑 리스트  -->
-
-                        <li class="list-item">
-                            <div class="npay-ani">
-                                <img src="imgs/asset/NCoin_popupFlip.gif">
-                            </div>
-                            <ul class="live-list-thumb" style="background-image: url(imgs/live-tumb/item2.png);">
-                                <li class="live-list-badge">
-                                    <img src="imgs/badge/badge_before.svg">
-                                    <p>5원</p>
-                                </li>
-                                <li class="live-list-bar">
-                                    <p>라이브 중이에요!</p>
-                                    <div class="bar case2"></div>
-                                </li>
-                            </ul>
-                            <p class="live-list-title">
-                                한줄일 경우
-                            </p>
-                        </li>
-
-                        <li class="list-item">
-                            <ul class="live-list-thumb" style="background-image: url(imgs/live-tumb/item3.png);">
-                                <li class="live-list-badge">
-                                    <img src="imgs/badge/badge_after.svg">
-                                    <p></p>
-                                </li>
-                                <li class="live-list-bar">
-                                    <p>곧 끝나요!</p>
-                                    <div class="bar case3"></div>
-                                </li>
-                            </ul>
-                            <p class="live-list-title">
-                                듀얼브러쉬로 더 깨끗하게다이슨 청소기 헤드
-                            </p>
-                        </li>
-
-                        <li class="list-item">
-                            <ul class="live-list-thumb" style="background-image: url(imgs/live-tumb/item4.png);">
-                                <li class="live-list-badge">
-                                    <img src="imgs/badge/badge_after.svg">
-                                    <p></p>
-                                </li>
-                                <li class="live-list-bar">
-                                    <p>곧 끝나요!</p>
-                                    <div class="bar case3"></div>
-                                </li>
-                            </ul>
-                            <p class="live-list-title">
-                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
-                            </p>
-                        </li>
-
-                         <div class="more-btn">
-                                <!-- 더보기 버튼 영역 -->
-                                <!-- 버튼 클릭시 4개의 방송예정 리스트를 호출함 -->
-                                <!-- 불러올 리스트가 없는 경우 아래 버튼에 dispaly:none 처리 -->
-                                <!-- 불러올 리스트가 없는 경우 아래와 같이
-                                <button style="display:none;">
-                                    <p>라이브 더보기</p>
-                                    <img src="imgs/asset/under-arrow.svg">
-                                </button>
-                                -->
-                                <button>
-                                    <p>라이브 더 보기</p>
-                                    <img src="imgs/asset/under-arrow.svg">
-                                </button>
-                        </div>
-
                     </ul>
-
-                </div>
-
-                <!--나눔선 / 라이브 노출 요소가 없으면 나오지 않도록 스크립트 처리함-->
-                <div class="blank live-list-blank">
+                
                 </div>
 
                 <!--노출할 요소가 없으면 itembox class에 none 추가-->
                 <div class="itembox">
                     <!-- 라이브 예정방송 리스트 (최초 4개 로딩 이후 하단 more 버튼을 통하여 6개씩 로딩) -->
-                    <ul class="comming-list 2nd">
+                    <ul class="comming-list 2nd" >
                         <li class="list-title">
                             <p>Coming Soon</p>
                             <p>포인트 적립 놓치지 않게 알림설정하기!</p>
@@ -223,20 +102,16 @@
                         <li class="list-item">
                             <!-- 라이브 예정 방송 리스트 아이템 -->
                             <ul class="comming-list-item">
-
-                                <!-- Lotti 애니메이션 호출 // 토스트의 동전 튀는 그것  //삭제-->
-                                <!-- gif로 변경됨 / cdn에서 끌어오는 방향을 바꿔야함 //삭제 -->
-                                <!-- live-list-thumb 는 오버플로우 히든 효과가 있기 떄문에 박스 바깥에 위치하여됨/ 애니메이션이 박스 밖으로 초과되어야함 -->
-                                <!-- 지급 유무에 따라서 존재하고 없어짐 / 리워드 받기 전 상태에만 존재하고 리워드 받은 후에는 없어져야함 -->
-
                                 <!-- 라이브 예정 방송 리스트 썸네일 // standByImageUrl -->
                                 <!-- 아래 백그라운드로 이미지 제어 url(#) 출력할 이미지 주소 호출  -->
                                 <!-- 아래 백그라운드로 이미지 이미지 없을경우 style="background-image: url(#);" 제거(디폴트 이미지 출력됨) -->
                                 <li class="comming-list-thumb" style="background-image: url(imgs/item-list/item1.png);">
+                                    <!--뱃지상태 추가-->
                                     <div class="live-list-badge">
                                         <img src="imgs/badge/badge_click.svg">
                                         <p>1원</p>
                                     </div>
+                                    <!--뱃지상태 추가-->
                                 </li>
                                 <li class="comming-list-title">
                                     <!-- 방송 예정 시간 -->
@@ -278,7 +153,8 @@
                             <ul class="comming-list-item">
                                 <li class="comming-list-thumb" style="background-image: url(imgs/item-list/item3.png);">
                                     <div class="live-list-badge">
-                                        <img src="imgs/badge/badge_after.svg">
+                                        <img src="imgs/badge/badge_click.svg">
+                                        <p>1원</p>
                                     </div>
                                 </li>
                                 <li class="comming-list-title">
@@ -294,7 +170,8 @@
                             <ul class="comming-list-item">
                                 <li class="comming-list-thumb">
                                     <div class="live-list-badge">
-                                        <img src="imgs/badge/badge_after.svg">
+                                        <img src="imgs/badge/badge_click.svg">
+                                        <p>1원</p>
                                     </div>
                                 </li>
                                 <li class="comming-list-title">
@@ -360,7 +237,7 @@
                 <!--노출할 요소가 없으면 itembox class에 none 추가-->
                 <div class="itembox">
                     <!-- 지난 라이브(상품) 다시보기 -->
-                    <ul class="comming-list type2">
+                    <ul class="comming-list">
                         <li class="list-title">
                             <p>지난 라이브 다시보기</p>
                             <p>아쉽지만 라이브 종료된 방송은 리워드를 받을 수 없어요.</p>
@@ -510,7 +387,8 @@
                             <ul class="comming-list-item">
                                 <li class="comming-list-thumb" style="background-image: url(imgs/item-list/item6.png);">
                                     <div class="live-list-badge">
-                                        <img src="imgs/badge/badge_after.svg">
+                                        <img src="imgs/badge/badge_click.svg">
+                                        <p>1원</p>
                                     </div>
                                 </li>
                                 <li class="comming-list-title">
@@ -523,7 +401,8 @@
                             <ul class="comming-list-item">
                                 <li class="comming-list-thumb" style="background-image: url(imgs/item-list/item6.png);">
                                     <div class="live-list-badge">
-                                        <img src="imgs/badge/badge_after.svg">
+                                        <img src="imgs/badge/badge_click.svg">
+                                        <p>1원</p>
                                     </div>
                                 </li>
                                 <li class="comming-list-title">
@@ -788,6 +667,7 @@
             });
         });
 
+
         // 라이브 리스트 없는 경우 live-list를 숨김처리하고
         // .head-banner에 패딩 바텀값을 추가함
         // .blank.live-list-blank 나눔선도 숨김처리함
@@ -882,18 +762,6 @@
                 $toast.hide();
             }
         });
-
-        //로띠파일 적용
-        //여러객체 적용될 수 있도록 변경
-        //$('.npay-ani').each(function () {
-            //lottie.loadAnimation({
-               // container: this,   
-                //renderer: 'svg',
-                //loop: true,
-                //autoplay: true,
-                //path: 'imgs/lotti/NCoin_popupFlip.json'
-            //});
-        //});
    
     </script>
 

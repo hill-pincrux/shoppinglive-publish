@@ -118,7 +118,7 @@ body.no-scroll {
 #tost-alram {
   position: fixed;
   z-index: 60;
-  right: 0.35rem;
+  right: 0.75rem;
   top: calc(env(safe-area-inset-top) + 44px);
   pointer-events: none;
   transform: translateY(-6px) scale(0.96);
@@ -126,7 +126,7 @@ body.no-scroll {
   opacity: 0;
 }
 #tost-alram img {
-  width: 5.25rem;
+  width: 4.5rem;
 }
 #tost-alram.show {
   opacity: 1;
